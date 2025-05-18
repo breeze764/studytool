@@ -1,0 +1,82 @@
+body {
+    background-color: #A8E6A7;
+  }
+  h2 {
+    color: #225560;
+  }
+  h3 {
+    color: #1A1110;
+    text-align: center;
+  }
+  p {
+    color: #1A1110;
+  }
+
+/* Add a black background color to the top navigation */
+.navbar-inverse {
+background-color: #225560;
+border-color: #225560;
+overflow: hidden;
+}
+
+.navbar-fixed-top {
+  border-bottom-width: 0px;
+}
+
+.navbar-inverse .navbar-brand {
+color: #ffffff;
+}
+
+/* Style the links inside the navigation bar */
+.navbar-inverse .navbar-nav>li>a {
+float: left;
+color: #ffffff;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.navbar-inverse a:hover {
+background-color: #ffffff;
+color: #1A1110;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+color: #ffffff;
+background-color: #A8E6A7;
+}
+
+.form-group label {
+  color: #212529;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+
+.jumbotron {
+background-color: #ffffff;  
+}
+
+.col-md-3 {
+background-color: #225560;
+}
+
+.col-md-6 {
+background-color: #ffffff;
+}
+
+.btn.btn-success {
+  color:#A8E6A7;
+}
+
+.btn.btn-danger {
+  color: #A6192E;
+}
+
+.btn.btn-block {
+  background-color:#A6192E;
+  border-color:#A6192E;
+}

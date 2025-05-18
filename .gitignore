@@ -1,0 +1,18 @@
+# Ignore python environment
+env/
+venv/
+.venv/
+Lib/
+__pycache__/
+
+#Ignore system files
+.DS_Store
+Thumbs.db
+
+#Ignore python compiled files
+*.__pycache__
+*.python
+
+#Ignore vscode settings
+.vscode/
+

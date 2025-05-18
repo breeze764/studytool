@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Making a Plan</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Studying LHS</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/tutorial1">Start Here</a></li>
+              <li class="active"><a href="/tutorial2">Make a Plan</a></li>
+              <li><a href="/tutorial3">How to Study</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    
+    <div class="jumbotron text-center">
+      <h1>Time to set some goals</h1>
+    </div>
+    
+    <div class="container-fluid">
+      <div class="row d-flex align-items-stretch">
+        <div class="col-md-3">
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+        </div>
+      <div class="col-md-6">
+            <br><br>
+            <h3>Fantastic!</h3>
+            <br>
+            <p>You can study <b>{{study_time}}</b> hours before your exam</p>
+            <p>If you studied just <b>20</b> minutes more per day, you could study <b>{{extra_time}}</b> extra hours in that time!</p>
+            {% if spare_days != "0" %}
+                <p>You also have <b>{{spare_days}}</b> days where you aren't planning to study.
+                     If you found time to study during just a few of them think how much more prepared you would be!</p>
+            {% endif %}
+            <h3>Making a study plan</h3>
+      </div>
+      <div class="col-md-3">
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+      </div>
+      </div>
+    </div>
+
+    
+</body>
+</html>

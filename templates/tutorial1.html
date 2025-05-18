@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Debunking Studying Myths</title>
+</head>
+<body>
+  
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Studying LHS</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li class="active"><a href="/tutorial1">Start Here</a></li>
+          <li><a href="/tutorial2">Make a Plan</a></li>
+          <li><a href="/tutorial3">How to Study</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="jumbotron text-center">
+      <h1>What is study?</h1>
+      <p>Debunking studying myths</p>
+    </div>
+
+    <!--Creates the three main columns on the page-->
+    <div class="container-fluid">
+      <div class="row d-flex align-items-stretch">
+        <div class="col-md-3">
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+        </div>
+        <!--Five question true/false quiz for the user-->
+        <div class="col-md-6">
+          <h3>So you think you know about studying</h3>
+          <p>Take this five question quiz to test you knowledge</p>
+          <br>
+          <br>
+          {% for q in questions %}
+            <p>Q{{ q.id }}: {{ q.text }}</p>
+            <button class="btn btn-default" onclick="checkAnswer(this)" data-question="{{q.id}}" data-correct="{{ (q.correct_answer == 'true') | lower}}" data-explanation="{{q.answer_explanation}}">True</button>
+            <button class="btn btn-default" onclick="checkAnswer(this)" data-question="{{q.id}}" data-correct="{{ (q.correct_answer == 'false') | lower}}" data-explanation="{{q.answer_explanation}}">False</button>
+            <div id="explanation-{{ q.id }}" class="explanation" style="display: none; margin-top: 10px;"></div>
+            <br>
+            <br>
+          {% endfor %}
+          <br>
+          <br>
+          <br>
+        </div>
+        <div class="col-md-3">
+          <h2>Column 3</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+          <h2>Column 1</h2>
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+      function checkAnswer(button) {
+
+        //get the question id
+        const questionId = button.getAttribute("data-question");
+
+        //uses query selector to get all the buttons with Id's that match the question
+        const buttons = document.querySelectorAll(`button[data-question="${questionId}"]`);
+
+        //gets the answer text to explain whether this was right or wrong
+        const explanationText = button.getAttribute("data-explanation");
+
+        //reset all the buttons for this question to be neither red nor green
+        buttons.forEach(btn => {
+          btn.disabled = true;
+          btn.classList.remove("btn-success", "btn-danger");
+        });
+
+        const isCorrect = button.getAttribute("data-correct") === "true";
+
+        if (isCorrect) {
+          button.classList.add("btn-success"); //makes the button turn green
+        } else {
+          button.classList.add("btn-danger"); //makes the button turn red
+
+          //if they got it wrong, we also want to show the correct answer
+          buttons.forEach(btn => {
+            if (btn.getAttribute("data-correct") === "true") {
+              btn.classList.add("btn-success");
+            }
+          });
+
+          //we also want to tell them why their answer was incorrect
+
+          // Show explanation text
+          const explanationDiv = document.getElementById(`explanation-${questionId}`);
+          explanationDiv.innerText = explanationText;
+          explanationDiv.style.display = "block";
+
+          
+        }
+
+      }
+
+    </script>
+
+</body>
+</html>

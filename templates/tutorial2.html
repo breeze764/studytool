@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Making a Plan</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Studying LHS</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/tutorial1">Start Here</a></li>
+              <li class="active"><a href="/tutorial2">Make a Plan</a></li>
+              <li><a href="/tutorial3">How to Study</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    
+    <div class="jumbotron text-center">
+      <h1>Motivational Time Calculator</h1>
+      <p>Find out what you can do!</p>
+    </div>
+    
+    <div class="container-fluid">
+      <div class="row d-flex align-items-stretch">
+        <div class="col-md-3">
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
+        </div>
+      <div class="col-md-6">
+        <h3>Enter your studying goals</h3>
+        <br><br>
+        <form action="/calculate" method="post">
+                <div class="form-group">
+                    <label for="max_days">How many whole days until your exam?</label>
+                    <input 
+                    type="number" 
+                    class="form-control" 
+                    id="max_days" 
+                    name="max_days" 
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="days">How many of those days will you actually study?</label>
+                    <input 
+                    type="number" 
+                    class="form-control" 
+                    id="days" 
+                    name="days" 
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="hours">How many hours a day do you want to study?</label>
+                  <input
+                  type="number"
+                  class="form-control"
+                  id="hours"
+                  name="hours"
+                  required>
+                </div>
+                <button type="submit" class="btn btn-success">Go!</button>
+                <br><br>
+            </form>
+      </div>
+      <div class="col-md-3">
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+        <h2>Text</h2>
+      </div>
+      </div>
+    </div>
+
+</body>
+</html>
