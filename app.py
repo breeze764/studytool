@@ -5,20 +5,30 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 class Question:
-    def __init__(self,id,text,correct_answer,answer_explanation):
+    def __init__(self,id,text,correct_answer,explanation):
         self.id = id
         self.text = text
         self.correct_answer = correct_answer #true or false
-        self.answer_explanation = text #a message to flash up and explain the correct answer
+        self.explanation = explanation #explains why this was true/false
     
     def is_correct(self,answer):
         return answer.lower() == self.correct_answer.lower()
     
 questions = [
-    Question(1,"There is no such thing as a visual learner","true","This is true! Everyone learns best using a variety of methods. Don't believe me?..."),
-    Question(3,"Re-reading your notes is a good way to study","false","info"),
-    Question(4,"Some people are naturally better at certain subjects","false","info"),
-    Question(5,"You can improve your exam results by learning studying techniques","true","info"),
+    Question(1,"There is no such thing as a visual learner","true","This is true! The learning type theory has been "
+    "<a href='https://studytime.co.nz/articles/types-of-learners-dont-exist/' target='_blank' " \
+    "rel='noopener noreferrer'>thoroughly debunked.</a> " \
+    "The best way to study is not to try and put yourself in a box! There are smarter ways to learn."),
+    Question(2,"If I want to study, I should set aside an hour a day to do it","false","This is false! " \
+    "It's essential to make goals and stick to them, but you don't have to start with an hour a day. " \
+    "It's better to <a href='https://inspirationeducation.co.nz/extended-guides/step-step-guide-acing-ncea-exams/#:~:text=A%20good%20strategy%20is%20to,of%20flashcards%2C%20and%20test%20yourself' " \
+    "target='_blank' rel='noopener noreferrer'>work in sprints.</a> This is coming up soon."),
+    Question(3,"Re-reading your notes is a good way to study","false","This is false! Writing " \
+    "notes is a great way to process information, however re-reading them won't build a deeper understanding. It contributes" \
+    "to a phenomenon known as the <a href='https://www.phd-education.com.sg/post/the-illusion-of-learning-what-it-is-and-how-to-overcome-it#:~:text=The%20%E2%80%9Cillusion%20of%20learning%E2%80%9D%20is,the%20%E2%80%9Cillusion%20of%20learning%E2%80%9D.' target='_blank' rel='noopener noreffere'>illusion of learning.</a>"),
+    Question(4,"Studying doesn't matter if I'm not naturally good at it","false","This is false! If you are dedicated to your studies you'll be an even better student than those who are 'gifted'" \
+    " but not <a href='https://www.psychologytoday.com/nz/blog/the-athletes-way/202105/is-diligence-more-important-students-intelligence' target='_blank' rel='noopener noreferrer'>engaged.</a>"),
+    Question(5,"You can improve your results by learning studying techniques","true","This is true! That's what this website is all about. Now are you ready to plan your study?"),
 ]
 
 
@@ -41,6 +51,10 @@ def plan():
 @app.route('/tutorial3')
 def how_to():
     return render_template('tutorial3.html')
+
+@app.route('/answers')
+def answers():
+    return render_template('answers.html',questions=questions)
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
