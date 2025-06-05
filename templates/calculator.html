@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles.css">
-    <title>Debunking Studying Myths</title>
+    <title>Making a Plan</title>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -30,16 +30,16 @@
               <li><a href="/">Home</a></li>
               <li><a href="/tutorial1">Start Here</a></li>
               <li><a href="/tutorial2">Make a Plan</a></li>
-              <li><a href="/pre-calculator">Calculate Study Time</a></li>
-              <li class="active"><a href="/tutorial3">Study Techniques</a></li>
+              <li class="active"><a href="/pre-calculator">Calculate Study Time</a></li>
+              <li><a href="/tutorial3">Study Techniques</a></li>
             </ul>
           </div>
         </div>
-      </nav>
-
+    </nav>
+    
     <div class="jumbotron text-center">
-        <h1>The How</h1>
-        <p>Introducing study tecniques<p>
+      <h1>The When</h1>
+      <p>Find out what you can do!</p>
     </div>
     
     <div class="container-fluid">
@@ -53,40 +53,46 @@
           <h2>Text</h2>
           <h2>Text</h2>
           <h2>Text</h2>
-          <h2>Text</h2>
         </div>
       <div class="col-md-6">
-        <h3>Study techniques</h3>
-          <p>So you know <i>what</i> you need to study, and you know <i>when</i> you're going to do it.</p>
-          <p>You've got your bum in the chair and you're ready. You just need to know <i>how</i>.</p>
-          <p>Which of these represents your biggest studying roadblock?</p>
-          <br>
-          <a href="#no-motivation" class="btn btn-default" role="button">No motivation</a>
-          <br>
-          <br>
-          <a href="#confusing" class="btn btn-default" role="button">The material is too confusing</a>
-          <br>
-          <br>
-          <a href="#forgetfull" class="btn btn-default" role="button">Can't remember stuff</a>
-          <br>
-          <br>
-          <br>
-          <h4 id="no-motivation">No motivation</h4>
-          <p>Here are some techniques that might work for you.</p>
-          <p>1.khaskhagkh</p>
-          <br>
-          <br>
-          <h4 id="confusing">Material too confusing</h4>
-          <p>Here are some techniques that might work for you.</p>
-          <p>1.khaskhagkh</p>
-          <br>
-          <br>
-          <h4 id="forgetfull">Can't remember stuff</h4>
-          <p>Here are some techniques that might work for you.</p>
-          <p>1.khaskhagkh</p>
+        <h3>Enter your studying goals</h3>
+        <br><br>
+        <form action="/calculate" method="post">
+                <div class="form-group">
+                    <label for="max_days">How many whole days until your exam?</label>
+                    <input 
+                    type="number" 
+                    class="form-control" 
+                    id="max_days" 
+                    name="max_days" 
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="days">How many of those days will you actually study?</label>
+                    <input 
+                    type="number" 
+                    class="form-control" 
+                    id="days" 
+                    name="days" 
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="hours">How many hours a day do you want to study?</label>
+                  <input
+                  type="number"
+                  class="form-control"
+                  id="hours"
+                  name="hours"
+                  required>
+                </div>
+                <br>
+                <div class="col text-center">
+                  <button type="submit">Go!</button>
+                </div>
+                <br><br><br>
+            </form>
       </div>
       <div class="col-md-3">
-        <h2>Text</h2>
         <h2>Text</h2>
         <h2>Text</h2>
         <h2>Text</h2>
