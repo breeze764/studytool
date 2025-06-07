@@ -56,11 +56,8 @@
             <h3>Here's some motivation for you</h3>
             <br>
             <p>You can study <b>{{study_time}}</b> hours before your exam</p>
-            <p>If you studied just <b>20</b> minutes more per day, you could study <b>{{extra_time}}</b> extra hours in that time!</p>
-            {% if spare_days != "0" %}
-                <p>You also have <b>{{spare_days}}</b> days where you aren't planning to study.
-                     Think how much you could do if you studied then too!</p>
-            {% endif %}
+            <p>You are {{goal}} achieve your goal.</p>
+            <p>You are going to study on these days {{days}}</p>
             
             <div class="col text-center">
                 <a href="/tutorial3" class="btn btn-default" role="button">Learn Study Techniques</a>

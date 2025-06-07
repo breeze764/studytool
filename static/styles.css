@@ -121,4 +121,11 @@ input[type=number]:focus {
   border-color:#225560;
 }
 
+.row.d-flex.align-items-stretch {
+  display: flex;
+}
 
+.row.d-flex.align-items-stretch > [class^="col-"] {
+  display: flex;
+  flex-direction: column;
+}

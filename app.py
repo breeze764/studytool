@@ -61,20 +61,18 @@ def get_hours():
 @app.route('/calculate', methods=['POST'])
 def calculate():
     #gets the info from our form about how long they want to study
-    days = int(request.form.get('days'))
+    n_weeks = int(request.form.get('n_weeks'))
     hours = int(request.form.get('hours'))
-    max_days = int(request.form.get('max_days'))
-    study_time = days * hours
+    goal = int(request.form.get('goal'))
+    days = request.form.get('week')
+    study_time = n_weeks * hours
     study_time = str(study_time)
-    if days < max_days:
-        spare_days = max_days - days
-        spare_days = str(spare_days)
+    if int(study_time) >= goal:
+        goal_ach = "going to"
     else:
-        spare_days = 0
-    extra_time=(1/3)*days
-    extra_time = round(extra_time)
-    extra_time=str(extra_time)
-    return render_template('calculation_results.html',study_time=study_time,spare_days=spare_days,extra_time=extra_time)
+        goal_ach = "not going to"
+    #I still want to calculate what they could do with an extra 20 minutes per day, but that will have to be done another way
+    return render_template('calculation_results.html',n_weeks=n_weeks,hours=hours,study_time=study_time,goal_ach=goal_ach,days=days)
 
 """---------------------------------Tutorial Two Stuff-----------------------------------------"""
 

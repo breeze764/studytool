@@ -53,28 +53,30 @@
           <h2>Text</h2>
           <h2>Text</h2>
           <h2>Text</h2>
+          <h2>Text</h2>
+          <h2>Text</h2>
         </div>
       <div class="col-md-6">
         <h3>Enter your studying goals</h3>
         <br><br>
         <form action="/calculate" method="post">
                 <div class="form-group">
-                    <label for="max_days">How many whole days until your exam?</label>
+                    <label for="days">How many weeks until your exam?</label>
                     <input 
                     type="number" 
                     class="form-control" 
-                    id="max_days" 
-                    name="max_days" 
+                    id="n_weeks" 
+                    name="n_weeks" 
                     required>
                 </div>
                 <div class="form-group">
-                  <label for="days">How many of those days will you actually study?</label>
-                    <input 
-                    type="number" 
-                    class="form-control" 
-                    id="days" 
-                    name="days" 
-                    required>
+                  <label for="goal">How many hours of study do you need, to feel ready for your exams?</label>
+                  <input
+                  type="number"
+                  class="form-control"
+                  id="goal"
+                  name="goal"
+                  required>
                 </div>
                 <div class="form-group">
                   <label for="hours">How many hours a day do you want to study?</label>
@@ -86,13 +88,89 @@
                   required>
                 </div>
                 <br>
+                <div class="row">
+
+                  <div class="col-sm-6">
+
+                    <div class="form-group" id="technique_selection">
+                      <label for="technique_selection">Would you like to use one of these time management techniques?</label>
+                      <div class="form-check" style="margin-left: 40px;">
+                        <input type="radio" class="form-check-input" id="pomodoro" name="technique" value="pomodoro">
+                        <label class="form-check-label" for="pomodoro">Pomodoro</label>
+                      </div>
+                      <div class="form-check" style="margin-left: 40px;">
+                        <input type="radio" class="form-check-input" id="interleaving" name="technique" value="interleaving">
+                        <label class="form-check-label" for="interleaving">Interleaving</label>
+                      </div>
+                      <div class="form-check" style="margin-left:40px;">
+                        <input type="radio" class="form-check-input" id="both" name="technique" value="both">
+                        <label class="form-check-label" for="both">Both</label>
+                      </div>
+                      <div class="form-check" style="margin-left: 40px;">
+                        <input type="radio" class="form-check-input" id="neither" name="technique" value="neither">
+                        <label class="form-check-label" for="neither">Neither</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-6">
+
+                    <div class="form-group" id="week">
+                      <div class="row">
+                      <label for="week">Which days of the week would you like to study?</label>  
+
+                        <div class="col col-sm-6"> <!--Monday to Thursday-->
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Monday" name="week[]" value="Monday">
+                            <label class="form-check-label" for="Monday">Monday</label>
+                          </div>
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Tuesday" name="week[]" value="Tuesday">
+                            <label class="form-check-label" for="Tuesday">Tuesday</label>
+                          </div>
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Wednesday" name="week[]" value="Wednesday">
+                            <label class="form-check-label" for="Wednesday">Wednesday</label>
+                          </div>
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Thursday" name="week[]" value="Thursday">
+                            <label class="form-check-label" for="Thursday">Thursday</label>
+                          </div>
+                        </div>
+
+                        <div class="col col-sm-6"> <!--Friday to Sunday-->
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Friday" name="week[]" value="Friday">
+                            <label class="form-check-label" for="Friday">Friday</label>
+                          </div>
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Saturday" name="week[]" value="Saturday">
+                            <label class="form-check-label" for="Saturday">Saturday</label>
+                          </div>
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="Sunday" name="week[]" value="Sunday">
+                            <label class="form-check-label" for="Sunday">Sunday</label>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+                <br>
                 <div class="col text-center">
-                  <button type="submit">Go!</button>
+                  <button type="submit" class="btn btn-default">Go!</button>
                 </div>
                 <br><br><br>
             </form>
       </div>
       <div class="col-md-3">
+        <h2>Text</h2>
+        <h2>Text</h2>
         <h2>Text</h2>
         <h2>Text</h2>
         <h2>Text</h2>
