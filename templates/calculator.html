@@ -87,69 +87,91 @@
                   name="hours"
                   required>
                 </div>
+                <div class="form-group">
+                  <label for="technique">Would you like to use one of these study techniques?</label>
+                  <input 
+                  type="text" 
+                  list ="techniques"
+                  placeholder="Start typing a technique..."
+                  class="form-control" 
+                  id="technique" 
+                  name="technique" 
+                  required>
+                  <datalist id="techniques">
+                    <option value="Pomodoro">Pomodoro</option>
+                    <option value="Interleaving">Interleaving</option>
+                    <option value="Both">Both</option>
+                    <option value="Neither">Neither</option>
+                  </datalist>
+                </div>
+
+                
                 <br>
+
+
                 <div class="row">
 
                   <div class="col-sm-6">
 
-                    <div class="form-group" id="technique_selection">
-                      <label for="technique_selection">Would you like to use one of these time management techniques?</label>
+                    <div class="form-group" id="time_of_day">
+                      <label for="time_of_day" style="margin-left: 20px;">When would you like to study?</label>
                       <div class="form-check" style="margin-left: 40px;">
-                        <input type="radio" class="form-check-input" id="pomodoro" name="technique" value="pomodoro">
-                        <label class="form-check-label" for="pomodoro">Pomodoro</label>
+                        <input type="checkbox" class="form-check-input" id="morning" name="time_of_day" value="morning">
+                        <label class="form-check-label" for="morning">Morning</label>
                       </div>
                       <div class="form-check" style="margin-left: 40px;">
-                        <input type="radio" class="form-check-input" id="interleaving" name="technique" value="interleaving">
-                        <label class="form-check-label" for="interleaving">Interleaving</label>
-                      </div>
-                      <div class="form-check" style="margin-left:40px;">
-                        <input type="radio" class="form-check-input" id="both" name="technique" value="both">
-                        <label class="form-check-label" for="both">Both</label>
+                        <input type="checkbox" class="form-check-input" id="study_period" name="time_of_day" value="study_period">
+                        <label class="form-check-label" for="study_period">Study period</label>
                       </div>
                       <div class="form-check" style="margin-left: 40px;">
-                        <input type="radio" class="form-check-input" id="neither" name="technique" value="neither">
-                        <label class="form-check-label" for="neither">Neither</label>
+                        <input type="checkbox" class="form-check-input" id="afternoon" name="time_of_day" value="afternoon">
+                        <label class="form-check-label" for="afternoon">Afternoon</label>
+                      </div>
+                      <div class="form-check" style="margin-left: 40px;">
+                        <input type="checkbox" class="form-check-input" id="evening" name="time_of_day" value="evening">
+                        <label class="form-check-label" for="morning">Evening</label>
                       </div>
                     </div>
 
                   </div>
 
+
                   <div class="col-sm-6">
 
                     <div class="form-group" id="week">
                       <div class="row">
-                      <label for="week">Which days of the week would you like to study?</label>  
+                      <label for="week" style="margin-right:20px;">Which days of the week would you like to study?</label>  
 
                         <div class="col col-sm-6"> <!--Monday to Thursday-->
                           <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Monday" name="week[]" value="Monday">
+                            <input type="checkbox" class="form-check-input" id="Monday" name="week" value="Monday">
                             <label class="form-check-label" for="Monday">Monday</label>
                           </div>
                           <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Tuesday" name="week[]" value="Tuesday">
+                            <input type="checkbox" class="form-check-input" id="Tuesday" name="week" value="Tuesday">
                             <label class="form-check-label" for="Tuesday">Tuesday</label>
                           </div>
                           <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Wednesday" name="week[]" value="Wednesday">
+                            <input type="checkbox" class="form-check-input" id="Wednesday" name="week" value="Wednesday">
                             <label class="form-check-label" for="Wednesday">Wednesday</label>
                           </div>
                           <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Thursday" name="week[]" value="Thursday">
+                            <input type="checkbox" class="form-check-input" id="Thursday" name="week" value="Thursday">
                             <label class="form-check-label" for="Thursday">Thursday</label>
                           </div>
                         </div>
 
                         <div class="col col-sm-6"> <!--Friday to Sunday-->
                           <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Friday" name="week[]" value="Friday">
+                            <input type="checkbox" class="form-check-input" id="Friday" name="week" value="Friday">
                             <label class="form-check-label" for="Friday">Friday</label>
                           </div>
                           <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Saturday" name="week[]" value="Saturday">
+                            <input type="checkbox" class="form-check-input" id="Saturday" name="week" value="Saturday">
                             <label class="form-check-label" for="Saturday">Saturday</label>
                           </div>
                           <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Sunday" name="week[]" value="Sunday">
+                            <input type="checkbox" class="form-check-input" id="Sunday" name="week" value="Sunday">
                             <label class="form-check-label" for="Sunday">Sunday</label>
                           </div>
                         </div>

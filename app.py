@@ -58,21 +58,38 @@ def info():
 def get_hours():
     return render_template("calculator.html")
 
-@app.route('/calculate', methods=['POST'])
+@app.route('/calculate', methods=['POST', 'GET'])
 def calculate():
     #gets the info from our form about how long they want to study
     n_weeks = int(request.form.get('n_weeks'))
     hours = int(request.form.get('hours'))
     goal = int(request.form.get('goal'))
-    days = request.form.get('week')
+    week = request.form.getlist('week[]')
     study_time = n_weeks * hours
     study_time = str(study_time)
+    technique = request.form.get('technique')
     if int(study_time) >= goal:
         goal_ach = "going to"
     else:
         goal_ach = "not going to"
+    goal = str(goal)
+    #calculate sprint time
+    if technique == 'pomodoro':
+        sprint = "25"
+    if technique == 'interleaving':
+        sprint = "30"
+    else:
+        sprint = "you decide"
+    #check which study technique the user has chosen by looping through each technique
+    #create personalized study plan based on the technique
+    #this will contain the time for their sprints, and the time of day they are going to study
+    #we need to divide the hours they want to study up according to their sprint time, and they are going to do that starting from their desired time going on until done
+    #I need to fix the calculation of study time to be more accurate, as it's currently assuming they will study every day. 
+
+
+    #the user can choose to study on 5 or 6 days a week, so we need to calculate how many hours they will study per day
     #I still want to calculate what they could do with an extra 20 minutes per day, but that will have to be done another way
-    return render_template('calculation_results.html',n_weeks=n_weeks,hours=hours,study_time=study_time,goal_ach=goal_ach,days=days)
+    return render_template('calculation_results.html',n_weeks=n_weeks,hours=hours,study_time=study_time,goal_ach=goal_ach,week=week,goal=goal,technique=technique)
 
 """---------------------------------Tutorial Two Stuff-----------------------------------------"""
 
