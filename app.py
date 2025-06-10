@@ -62,34 +62,80 @@ def get_hours():
 def calculate():
     #gets the info from our form about how long they want to study
     n_weeks = int(request.form.get('n_weeks'))
-    hours = int(request.form.get('hours'))
+    n_hours_per_day = int(request.form.get('hours'))
     goal = int(request.form.get('goal'))
-    week = request.form.getlist('week[]')
-    study_time = n_weeks * hours
-    study_time = str(study_time)
+    #a list of days they want to study on
+    days_to_study = request.form.getlist('week')
     technique = request.form.get('technique')
-    if int(study_time) >= goal:
+    time_of_day = request.form.getlist('time_of_day')
+    n_study_sessions = len(time_of_day) #ie, 2, morning and evening
+
+    #calculates how many hours they are going to study and whether they'll achieve their goal
+    n_days = len(days_to_study)
+    study_time = n_hours_per_day * n_days * n_weeks
+    if study_time >= goal:
         goal_ach = "going to"
     else:
         goal_ach = "not going to"
-    goal = str(goal)
-    #calculate sprint time
-    if technique == 'pomodoro':
-        sprint = "25"
-    if technique == 'interleaving':
-        sprint = "30"
+
+    #calculates study time per sprint (if they have multiple) by first finding the number of whole
+    #hours they need to study per session, and then finding the remainder, and converting it into minutes
+    t_session = n_hours_per_day // n_study_sessions
+    remainder = n_hours_per_day / n_study_sessions - t_session 
+    minutes_raw = remainder * 60
+    #rounds the minutes up to the nearest quarter of an hour for practicality
+    rounding="(Rounded up)."
+    if minutes_raw == 0:
+        minutes = 0
+        rounding = ""
+    elif minutes_raw <= 15:
+        minutes = 15
+    elif minutes_raw <=30:
+        minutes = 30
+    elif minutes_raw <=45:
+        minutes = 45
+    elif minutes_raw <=60:
+        #we'll round it up to another entire hour
+        minutes = 0
+        t_session += 1
     else:
-        sprint = "you decide"
-    #check which study technique the user has chosen by looping through each technique
-    #create personalized study plan based on the technique
-    #this will contain the time for their sprints, and the time of day they are going to study
-    #we need to divide the hours they want to study up according to their sprint time, and they are going to do that starting from their desired time going on until done
-    #I need to fix the calculation of study time to be more accurate, as it's currently assuming they will study every day. 
+        minutes= 0
+        t_session += 1
 
+    #personalized instructions based on technique selected
+    if technique == "Pomodoro":
+        instructions = "You are going to study in 25 minute sprints, taking 5 minute breaks in between."
+    elif technique == "Interleaving":
+        instructions = "You will focus on different topics, using different study methods each session."
+    elif technique == "Both":
+        instruction = "You are going to study in 25 minute sprints, taking 5 minute breaks in between, and focusing on different topics and techniques."
+    else:
+        instruction = ""
 
-    #the user can choose to study on 5 or 6 days a week, so we need to calculate how many hours they will study per day
-    #I still want to calculate what they could do with an extra 20 minutes per day, but that will have to be done another way
-    return render_template('calculation_results.html',n_weeks=n_weeks,hours=hours,study_time=study_time,goal_ach=goal_ach,week=week,goal=goal,technique=technique)
+    #personalized recommendation based on goal achieved (or not)
+    if goal_ach == "going to":
+        surplus_t = str(study_time - goal)
+        #convert to minutes for practicality
+        surplus_per_session = int(surplus_t) / (n_days * n_weeks * n_study_sessions)
+        surplus_per_session_mins = str(round(surplus_per_session * 60))
+        
+        rec = "You're already achieving your goal, so consider raising it, or reducing your study time." \
+        "You are studying " + surplus_t + " hours extra overall and " + surplus_per_session_mins + " minutes extra per session."
+    else:
+        deficit_t = str((goal - study_time)*60)
+        mins_plus = str(20 * n_study_sessions * n_weeks * n_days)
+        rec = "You currently aren't achieving your study goal. You're " + deficit_t + " minutes short. If you studied just 20 minutes extra per study session, you could study " + mins_plus + " minutes extra overall."
+
+    #make all the ints into strings so they can be printed in html
+    study_time = str(study_time)
+    goal = str(goal)
+    n_study_sessions = str(n_study_sessions)
+    t_session = str(t_session)
+    minutes = str(minutes)
+
+    return render_template('calculation_results.html',study_time=study_time,goal=goal,goal_ach=goal_ach,
+                           days_to_study=days_to_study,n_study_sessions=n_study_sessions,time_of_day=time_of_day,
+                           t_session=t_session,minutes=minutes,rounding=rounding,instructions=instructions,rec=rec)
 
 """---------------------------------Tutorial Two Stuff-----------------------------------------"""
 

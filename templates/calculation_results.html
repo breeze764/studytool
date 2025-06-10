@@ -53,13 +53,17 @@
         </div>
       <div class="col-md-6">
             <br><br>
-            <h3>Here's some motivation for you</h3>
+            <!--Print the output-->
+            <h3>Here's a rough study plan for you</h3>
             <br>
             <p>You can study <b>{{study_time}}</b> hours before your exam</p>
             <p>You are <b>{{goal_ach}}</b> achieve your goal of <b>{{goal}}</b> hours</p>
-            <p>You are going to study on these days {{week}}</p>
-            <p>You are going to use the {{technique}} study technique.</p>
-            
+            <p>You will study: <b>{{ days_to_study|join(', ') }}</b></p>
+            <p>You will have <b>{{n_study_sessions}}</b> study sessions per day, and these will be: <b>{{ time_of_day|join(', ') }}</b></p>            
+            <p>To stick to this plan you will need to study for <b>{{t_session}}</b> hours and <b>{{minutes}}</b> minutes per session.{{rounding}}</p>
+            <p>{{instructions}}</p>
+            <p>{{rec}}</p>
+            <br>
             <div class="col text-center">
                 <a href="/tutorial3" class="btn btn-default" role="button">Learn Study Techniques</a>
             </div>
