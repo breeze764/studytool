@@ -129,3 +129,10 @@ input[type=number]:focus {
   display: flex;
   flex-direction: column;
 }
+
+blockquote {
+  font-family: inherit;
+  font-style: none;
+  color:#1A1110;
+  font-size: inherit;
+}

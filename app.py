@@ -28,7 +28,7 @@ questions = [
     "target='_blank' rel='noopener noreferrer'>work in sprints.</a> This is coming up soon."),
     Question(3,"Re-reading your notes is a good way to study","false","This is false! Writing " \
     "notes is a great way to process information, however re-reading them won't build a deeper understanding. It contributes" \
-    "to a phenomenon known as the <a href='https://www.phd-education.com.sg/post/the-illusion-of-learning-what-it-is-and-how-to-overcome-it#:~:text=The%20%E2%80%9Cillusion%20of%20learning%E2%80%9D%20is,the%20%E2%80%9Cillusion%20of%20learning%E2%80%9D.' target='_blank' rel='noopener noreffere'>illusion of learning.</a>"),
+    "to a phenomenon known as the <a href='https://www.phd-education.com.sg/post/the-illusion-of-learning-what-it-is-and-how-to-overcome-it#:~:text=The%20%E2%80%9Cillusion%20of%20learning%E2%80%9D%20is,the%20%E2%80%9Cillusion%20of%20learning%E2%80%9D.' target='_blank' rel='noopener norefferer'>illusion of learning.</a>"),
     Question(4,"Studying doesn't matter if I'm not naturally good at it","false","This is false! If you are dedicated to your studies you'll be an even better student than those who are 'gifted'" \
     " but not <a href='https://www.psychologytoday.com/nz/blog/the-athletes-way/202105/is-diligence-more-important-students-intelligence' target='_blank' rel='noopener noreferrer'>engaged.</a>"),
     Question(5,"You can improve your results by learning studying techniques","true","This is true! That's what this website is all about. Now are you ready to plan your study?"),
@@ -205,6 +205,10 @@ def language_tips():
 @app.route('/tutorial3')
 def how_to():
     return render_template('tutorial3.html')
+
+@app.route('/motivation')
+def motivation():
+    return render_template('motivation.html')
 
 """-------------------------------------------------------------------------------------"""
 
