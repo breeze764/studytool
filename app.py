@@ -210,6 +210,14 @@ def how_to():
 def motivation():
     return render_template('motivation.html')
 
+@app.route('/understanding')
+def understanding():
+    return render_template('understanding.html')
+
+@app.route('/memorizing')
+def memorizing():
+    return render_template('memorizing.html')
+
 """-------------------------------------------------------------------------------------"""
 
 #executes a query to the sqlite database and returns the results
