@@ -69,9 +69,20 @@ def calculate():
     technique = request.form.get('technique')
     time_of_day = request.form.getlist('time_of_day')
 
-    #if they didn't check any "time of day" checkboxes, render an error page
+    #if they didn't check any "time of day" checkboxes, render the error page
     if time_of_day == []:
-        return render_template("error_page.html")
+        their_error="You need to select at least one time to study."
+        #these two are so the user can get back to the form from the error page, to retry it
+        back_button="Back to Calculator"
+        back_href="calculator"
+        return render_template("error_page.html",their_error=their_error,back_button=back_button,back_href=back_href)
+    
+    #if they didn't select any days to study, render the error page
+    if len(days_to_study) == 0:
+        their_error="You need to select at least one day to study on."
+        back_button="Back to Calculator"
+        back_href="calculator"
+        return render_template("error_page.html",their_error=their_error,back_button=back_button,back_href=back_href)
 
     n_study_sessions = len(time_of_day) #ie, 2, morning and evening
 
@@ -161,7 +172,11 @@ def show_requirements():
         subject_ID = query("SELECT ID FROM Subjects WHERE Name=?",(their_input,))
         subject_ID = subject_ID[0][0]
     except IndexError:
-        return render_template("error_page.html",their_input=their_input)
+        their_error="There don't seem to be any results for " + their_input + "."
+        #these two allow the user to return to this page from the error page
+        back_button="Back to Subject Search"
+        back_href="stem"
+        return render_template("error_page.html",their_error=their_error,back_button=back_button,back_href=back_href)
     #if it's in the database, collect the relevant standards to build a dictionary
     standards = query("SELECT Name, Requirements, Special_Note FROM Standards WHERE Subject_ID=?",(subject_ID,))
     standards_dict = {}
