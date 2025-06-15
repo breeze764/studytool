@@ -216,7 +216,7 @@ def understanding():
 
 @app.route('/memorizing')
 def memorizing():
-    return render_template('memorizing.html')
+    return render_template('remembering.html')
 
 """-------------------------------------------------------------------------------------"""
 

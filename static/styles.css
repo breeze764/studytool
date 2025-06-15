@@ -136,3 +136,11 @@ blockquote {
   color:#1A1110;
   font-size: inherit;
 }
+
+
+. blockquote active {
+  font-family: inherit;
+  font-style: none;
+  color:#1A1110;
+  font-size: 25px;
+}
