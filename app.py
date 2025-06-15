@@ -68,6 +68,11 @@ def calculate():
     days_to_study = request.form.getlist('week')
     technique = request.form.get('technique')
     time_of_day = request.form.getlist('time_of_day')
+
+    #if they didn't check any "time of day" checkboxes, render an error page
+    if time_of_day == []:
+        return render_template("error_page.html")
+
     n_study_sessions = len(time_of_day) #ie, 2, morning and evening
 
     #calculates how many hours they are going to study and whether they'll achieve their goal
@@ -108,9 +113,9 @@ def calculate():
     elif technique == "Interleaving":
         instructions = "You will focus on different topics, using different study methods each session."
     elif technique == "Both":
-        instruction = "You are going to study in 25 minute sprints, taking 5 minute breaks in between, and focusing on different topics and techniques."
+        instructions = "You are going to study in 25 minute sprints, taking 5 minute breaks in between, and focusing on different topics and techniques."
     else:
-        instruction = ""
+        instructions = ""
 
     #personalized recommendation based on goal achieved (or not)
     if goal_ach == "going to":
@@ -149,21 +154,26 @@ def sci_math():
 
 @app.route('/standard_requirements.html',methods=['POST','GET'])
 def show_requirements():
+    #gets what they typed into searchbar
     their_input = request.values.get('their_input')
+    #tries to find it in the database
     try:
         subject_ID = query("SELECT ID FROM Subjects WHERE Name=?",(their_input,))
         subject_ID = subject_ID[0][0]
     except IndexError:
         return render_template("error_page.html",their_input=their_input)
+    #if it's in the database, collect the relevant standards to build a dictionary
     standards = query("SELECT Name, Requirements, Special_Note FROM Standards WHERE Subject_ID=?",(subject_ID,))
     standards_dict = {}
-    thing = []
+    extra_spaces = []
+    #line counter will count how much space this subject takes up on the page
     line_counter = 0
     for standard in standards:
         string_requirements = standard[1]
         list_requirements = string_requirements.split(",")
         list_requirements_title_caps = []
         for requirement in list_requirements:
+
             #the only ones which needs special capitalization are DNA and DC because they look silly as Dc and Dna
             if "DNA" not in requirement and "DC" not in requirement:
                 requirement = requirement.title()
@@ -173,24 +183,27 @@ def show_requirements():
             else:
                 list_requirements_title_caps.append("The DC Motor")
             line_counter += 1
+
         #makes the standard name a key in the dictionary, which maps to a list of requirements
         standards_dict[standard[0]] = list_requirements_title_caps
+        #if this standard has a special note with it in the database, carry that over
         if standard[2]:
             special_note = standard[2]
         else:
             special_note = ""
+    #no matter how many requirements and standards per subject, I want the html page to have same length
+    #so for shorter subjects, I build a list of extra space up, to print later
     lines_remaining = 38 - line_counter
     if lines_remaining > 0:
         n = 0
+        #building up an appropriate amount of extra space depending how long subject was
         while n <= lines_remaining:
-            thing.append("")
+            extra_spaces.append("")
             n += 1
     
     line_counter = int(line_counter)
 
-    #tempoarily overriding what it would normally return to see the output
-    #return render_template("testingstuff.html",thing_to_test=standards)
-    return render_template("standard_requirements.html",standards_dict=standards_dict,thing=thing,line_counter=line_counter,special_note=special_note) 
+    return render_template("standard_requirements.html",standards_dict=standards_dict,extra_spaces=extra_spaces,line_counter=line_counter,special_note=special_note) 
 
 @app.route('/essay_subjects')
 def essay_tips():

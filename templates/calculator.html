@@ -45,16 +45,6 @@
     <div class="container-fluid">
       <div class="row d-flex align-items-stretch">
         <div class="col-md-3">
-          <h2>Text</h2>
-          <h2>Text</h2>
-          <h2>Text</h2>
-          <h2>Text</h2>
-          <h2>Text</h2>
-          <h2>Text</h2>
-          <h2>Text</h2>
-          <h2>Text</h2>
-          <h2>Text</h2>
-          <h2>Text</h2>
         </div>
       <div class="col-md-6">
         <h3>Enter your studying goals</h3>
@@ -67,7 +57,10 @@
                     class="form-control" 
                     id="n_weeks" 
                     name="n_weeks" 
-                    required>
+                    min="1"
+                    max="200"
+                    required
+                    oninput="showWeeksError(this)">
                 </div>
                 <div class="form-group">
                   <label for="goal">How many hours of study do you need, to feel ready for your exams?</label>
@@ -76,16 +69,24 @@
                   class="form-control"
                   id="goal"
                   name="goal"
-                  required>
+                  min="1"
+                  required
+                  oninput="showGoalError(this)">
                 </div>
                 <div class="form-group">
                   <label for="hours">How many hours a day do you want to study?</label>
+                  <!--will check if their study hours are healthy as they input it-->
                   <input
                   type="number"
                   class="form-control"
                   id="hours"
                   name="hours"
-                  required>
+                  min="1"
+                  max="24"
+                  required
+                  oninput="checkStudyHours(this)">
+                  <!--if study hours are unhealthy, warns them here-->
+                  <p id="study-hours-warning" class="alert alert-danger" style="display: none;"></p>
                 </div>
                 <div class="form-group">
                   <label for="technique">Would you like to use one of these study techniques?</label>
@@ -191,19 +192,43 @@
             </form>
       </div>
       <div class="col-md-3">
-        <h2>Text</h2>
-        <h2>Text</h2>
-        <h2>Text</h2>
-        <h2>Text</h2>
-        <h2>Text</h2>
-        <h2>Text</h2>
-        <h2>Text</h2>
-        <h2>Text</h2>
-        <h2>Text</h2>
-        <h2>Text</h2>
       </div>
       </div>
     </div>
+
+    <script>
+      //custom error messages for the weeks left input
+              function showWeeksError(input) {
+                if (input.validity.rangeOverflow) {
+                  input.setCustomValidity("You probably don't need to start studying yet")
+                } else if (input.validity.rangeUnderflow){
+                  input.setCustomValidity("Even if you have only half a week, enter 1")
+                } else {
+                  input.setCustomValidity("")
+                }
+              }
+      
+      //custom error message for the goal input
+              function showGoalError(input) {
+                if (input.validity.rangeUnderflow) {
+                  input.setCustomValidity("Good for you. No need to study then.")
+                }
+              }
+
+      //custom error message for an unhealthy amount of study time
+              function checkStudyHours(input) {
+                const warning = document.getElementById("study-hours-warning");
+
+                //checks if their study hours are sensible
+                if (input.value >= 11 && input.value <=24) {
+                  warning.textContent="That may not be healthy"
+                  warning.style.display = "block";
+                } else {
+                  //if not, the alert won't show
+                  warning.style.display = "none";
+                }
+              }
+    </script>
 
 </body>
 </html>
