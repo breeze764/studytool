@@ -38,72 +38,38 @@
     </div>
   </nav>
 
-    <div class="jumbotron text-center">
-      <h1>Answers</h1>
-      <p>Some explanation for those funny questions</p>
-    </div>
+  <div class="jumbotron text-center">
+    <h1>Answers</h1>
+    <p>Some explanation for those funny questions</p>
+  </div>
 
-    <!--Creates the three main columns on the page-->
-    <div class="container-fluid">
-      <div class="row d-flex align-items-stretch">
-        <div class="col-xs-12 col-md-3">
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-        </div>
-        <!--Text which explains the true false questions-->
-        <div class="col-xs-12 col-md-6">
-          <h3>Answer Explanations</h3>
-          {% for q in questions %}
-            <br>
-            <br>
-            <h4>Q{{ q.id }}: {{ q.text }}</h4>
-            <p>{{ q.explanation | safe }}</p>
-          {% endfor %}
-          <br>
-          <br>
-          <br>
-          <div class="col text-center">
-              <a href="/tutorial2" class="btn btn-default" role="button">Make a Plan!</a>
-          </div>
-          <br>
-          <br>
-          <br>
-          <br>
-        </div>
-        <div class="col-xs-12 col-md-3">
-          <h2>Column 3</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-          <h2>Column 1</h2>
-        </div>
+  <div class="container-fluid">
+    <div class="row d-flex align-items-stretch">
+
+      <div class="col-xs-12 col-md-3">
+        <h2>Text</h2>
       </div>
+      
+      <div class="col-xs-12 col-md-6">
+        <h3>Answer Explanations</h3>
+        {% for q in questions %}
+          <br><br>
+          <h4>Q{{ q.id }}: {{ q.text }}</h4>
+          <p>{{ q.explanation | safe }}</p>
+        {% endfor %}
+        <br><br><br><br>
+        <div class="text-center">
+            <a href="/tutorial2" class="btn btn-default" role="button">Make a Plan!</a>
+        </div>
+        <br><br><br><br>
+      </div>
+
+      <div class="col-xs-12 col-md-3">
+        <h2>Text</h2>
+      </div>
+
     </div>
+  </div>
 
     <script>
 

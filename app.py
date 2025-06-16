@@ -1,4 +1,4 @@
-#prototype website for the study habits website (very bad)
+#the study tool website python backend
 
 from flask import Flask, render_template, request, jsonify
 import sqlite3

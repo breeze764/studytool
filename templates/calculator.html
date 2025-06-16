@@ -15,220 +15,222 @@
     <title>Making a Plan</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Studying LHS</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li><a href="/">Home</a></li>
-              <li><a href="/tutorial1">Start Here</a></li>
-              <li><a href="/tutorial2">Make a Plan</a></li>
-              <li class="active"><a href="/pre-calculator">Calculate Study Time</a></li>
-              <li><a href="/tutorial3">Study Techniques</a></li>
-            </ul>
-          </div>
-        </div>
-    </nav>
-    
-    <div class="jumbotron text-center">
-      <h1>The When</h1>
-      <p>Find out what you can do!</p>
-    </div>
-    
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-      <div class="row d-flex align-items-stretch">
-        <div class="col-xs-12 col-xs-12 col-xs-12 col-md-3">
-        </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Studying LHS</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tutorial1">Start Here</a></li>
+          <li><a href="/tutorial2">Make a Plan</a></li>
+          <li class="active"><a href="/pre-calculator">Calculate Study Time</a></li>
+          <li><a href="/tutorial3">Study Techniques</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    
+  <div class="jumbotron text-center">
+    <h1>The When</h1>
+    <p>Find out what you can do!</p>
+  </div>
+    
+  <div class="container-fluid">
+    <div class="row d-flex align-items-stretch">
+
+      <div class="col-xs-12 col-xs-12 col-xs-12 col-md-3">
+        <h2>Text</h2>
+      </div>
+
       <div class="col-xs-12 col-md-6">
         <h3>Enter your studying goals</h3>
         <br><br>
         <form action="/calculate" method="post">
-                <div class="form-group">
-                    <label for="days">How many weeks until your exam?</label>
-                    <input 
-                    type="number" 
-                    class="form-control" 
-                    id="n_weeks" 
-                    name="n_weeks" 
-                    min="1"
-                    max="200"
-                    required
-                    oninput="showWeeksError(this)">
-                </div>
-                <div class="form-group">
-                  <label for="goal">How many hours of study do you need, to feel ready for your exams?</label>
-                  <input
-                  type="number"
-                  class="form-control"
-                  id="goal"
-                  name="goal"
-                  min="1"
-                  required
-                  oninput="showGoalError(this)">
-                </div>
-                <div class="form-group">
-                  <label for="hours">How many hours a day do you want to study?</label>
-                  <!--will check if their study hours are healthy as they input it-->
-                  <input
-                  type="number"
-                  class="form-control"
-                  id="hours"
-                  name="hours"
-                  min="1"
-                  max="24"
-                  required
-                  oninput="checkStudyHours(this)">
-                  <!--if study hours are unhealthy, warns them here-->
-                  <p id="study-hours-warning" class="alert alert-danger" style="display: none;"></p>
-                </div>
-                <div class="form-group">
-                  <label for="technique">Would you like to use one of these study techniques?</label>
-                  <input 
-                  type="text" 
-                  list ="techniques"
-                  placeholder="Start typing a technique..."
-                  class="form-control" 
-                  id="technique" 
-                  name="technique" 
-                  required>
-                  <datalist id="techniques">
-                    <option value="Pomodoro">Pomodoro</option>
-                    <option value="Interleaving">Interleaving</option>
-                    <option value="Both">Both</option>
-                    <option value="Neither">Neither</option>
-                  </datalist>
-                </div>
+          <!--these first 4 form groups are for text input boxes-->
+          <div class="form-group">
+              <label for="days">How many weeks until your exam?</label>
+              <input 
+              type="number" 
+              class="form-control" 
+              id="n_weeks" 
+              name="n_weeks" 
+              min="1"
+              max="200"
+              required
+              oninput="showWeeksError(this)">
+          </div>
+          <div class="form-group">
+            <label for="goal">How many hours of study do you need, to feel ready for your exams?</label>
+            <input
+            type="number"
+            class="form-control"
+            id="goal"
+            name="goal"
+            min="1"
+            required
+            oninput="showGoalError(this)">
+          </div>
+          <div class="form-group">
+            <label for="hours">How many hours a day do you want to study?</label>
+            <!--will check if their study hours are healthy as they input it-->
+            <input
+            type="number"
+            class="form-control"
+            id="hours"
+            name="hours"
+            min="1"
+            max="24"
+            required
+            oninput="checkStudyHours(this)">
+            <!--if study hours are unhealthy, warns them here-->
+            <p id="study-hours-warning" class="alert alert-danger" style="display: none;"></p>
+          </div>
+          <div class="form-group">
+            <label for="technique">Would you like to use one of these study techniques?</label>
+            <input 
+            type="text" 
+            list ="techniques"
+            placeholder="Start typing a technique..."
+            class="form-control" 
+            id="technique" 
+            name="technique" 
+            required>
+            <datalist id="techniques">
+              <option value="Pomodoro">Pomodoro</option>
+              <option value="Interleaving">Interleaving</option>
+              <option value="Both">Both</option>
+              <option value="Neither">Neither</option>
+            </datalist>
+          </div>
+          <br>
+          <!--the next form inputs are formatted in rows and columns so they look nicer, and are sets of checkboxes and buttons-->
+          <div class="row">
 
-                
-                <br>
+            <!--this column is for the time of day question-->
+            <div class="col-sm-6">
+              <div class="form-group" id="time_of_day">
+                <label for="time_of_day" style="margin-left: 20px;">When would you like to study?</label>
+                <div class="form-check" style="margin-left: 40px;">
+                  <input type="checkbox" class="form-check-input" id="morning" name="time_of_day" value="morning">
+                  <label class="form-check-label" for="morning">Morning</label>
+                </div>
+                <div class="form-check" style="margin-left: 40px;">
+                  <input type="checkbox" class="form-check-input" id="study period" name="time_of_day" value="study period">
+                  <label class="form-check-label" for="study period">Study period</label>
+                </div>
+                <div class="form-check" style="margin-left: 40px;">
+                  <input type="checkbox" class="form-check-input" id="afternoon" name="time_of_day" value="afternoon">
+                  <label class="form-check-label" for="afternoon">Afternoon</label>
+                </div>
+                <div class="form-check" style="margin-left: 40px;">
+                  <input type="checkbox" class="form-check-input" id="evening" name="time_of_day" value="evening">
+                  <label class="form-check-label" for="morning">Evening</label>
+                </div>
+              </div>
+            </div>
 
+            <!--this column is for the days of the week question-->
+            <div class="col-sm-6">
+              <div class="form-group" id="week">
 
+                <!--this row is for grouping the days into two columns for nicer output-->
                 <div class="row">
+                <label for="week" style="margin-right:20px;">Which days of the week would you like to study?</label>  
 
-                  <div class="col-sm-6">
-
-                    <div class="form-group" id="time_of_day">
-                      <label for="time_of_day" style="margin-left: 20px;">When would you like to study?</label>
-                      <div class="form-check" style="margin-left: 40px;">
-                        <input type="checkbox" class="form-check-input" id="morning" name="time_of_day" value="morning">
-                        <label class="form-check-label" for="morning">Morning</label>
-                      </div>
-                      <div class="form-check" style="margin-left: 40px;">
-                        <input type="checkbox" class="form-check-input" id="study period" name="time_of_day" value="study period">
-                        <label class="form-check-label" for="study period">Study period</label>
-                      </div>
-                      <div class="form-check" style="margin-left: 40px;">
-                        <input type="checkbox" class="form-check-input" id="afternoon" name="time_of_day" value="afternoon">
-                        <label class="form-check-label" for="afternoon">Afternoon</label>
-                      </div>
-                      <div class="form-check" style="margin-left: 40px;">
-                        <input type="checkbox" class="form-check-input" id="evening" name="time_of_day" value="evening">
-                        <label class="form-check-label" for="morning">Evening</label>
-                      </div>
+                  <div class="col col-sm-6"> <!--Monday to Thursday-->
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="Monday" name="week" value="Monday">
+                      <label class="form-check-label" for="Monday">Monday</label>
                     </div>
-
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="Tuesday" name="week" value="Tuesday">
+                      <label class="form-check-label" for="Tuesday">Tuesday</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="Wednesday" name="week" value="Wednesday">
+                      <label class="form-check-label" for="Wednesday">Wednesday</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="Thursday" name="week" value="Thursday">
+                      <label class="form-check-label" for="Thursday">Thursday</label>
+                    </div>
                   </div>
-
-
-                  <div class="col-sm-6">
-
-                    <div class="form-group" id="week">
-                      <div class="row">
-                      <label for="week" style="margin-right:20px;">Which days of the week would you like to study?</label>  
-
-                        <div class="col col-sm-6"> <!--Monday to Thursday-->
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Monday" name="week" value="Monday">
-                            <label class="form-check-label" for="Monday">Monday</label>
-                          </div>
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Tuesday" name="week" value="Tuesday">
-                            <label class="form-check-label" for="Tuesday">Tuesday</label>
-                          </div>
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Wednesday" name="week" value="Wednesday">
-                            <label class="form-check-label" for="Wednesday">Wednesday</label>
-                          </div>
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Thursday" name="week" value="Thursday">
-                            <label class="form-check-label" for="Thursday">Thursday</label>
-                          </div>
-                        </div>
-
-                        <div class="col col-sm-6"> <!--Friday to Sunday-->
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Friday" name="week" value="Friday">
-                            <label class="form-check-label" for="Friday">Friday</label>
-                          </div>
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Saturday" name="week" value="Saturday">
-                            <label class="form-check-label" for="Saturday">Saturday</label>
-                          </div>
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Sunday" name="week" value="Sunday">
-                            <label class="form-check-label" for="Sunday">Sunday</label>
-                          </div>
-                        </div>
-
-                      </div>
-
+                  <div class="col col-sm-6"> <!--Friday to Sunday-->
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="Friday" name="week" value="Friday">
+                      <label class="form-check-label" for="Friday">Friday</label>
                     </div>
-
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="Saturday" name="week" value="Saturday">
+                      <label class="form-check-label" for="Saturday">Saturday</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="Sunday" name="week" value="Sunday">
+                      <label class="form-check-label" for="Sunday">Sunday</label>
+                    </div>
                   </div>
 
                 </div>
-                <br>
-                <div class="col text-center">
-                  <button type="submit" class="btn btn-default">Go!</button>
-                </div>
-                <br><br><br>
-            </form>
+
+              </div>
+            </div>
+
+          </div>
+          <br><br>
+          <div class="text-center">
+            <button type="submit" class="btn btn-default">Go!</button>
+          </div>
+          <br><br><br><br>
+        </form>
       </div>
+
       <div class="col-xs-12 col-xs-12 col-xs-12 col-md-3">
       </div>
-      </div>
+
     </div>
+  </div>
 
-    <script>
-      //custom error messages for the weeks left input
-              function showWeeksError(input) {
-                if (input.validity.rangeOverflow) {
-                  input.setCustomValidity("You probably don't need to start studying yet")
-                } else if (input.validity.rangeUnderflow){
-                  input.setCustomValidity("Even if you have only half a week, enter 1")
-                } else {
-                  input.setCustomValidity("")
-                }
-              }
-      
-      //custom error message for the goal input
-              function showGoalError(input) {
-                if (input.validity.rangeUnderflow) {
-                  input.setCustomValidity("Good for you. No need to study then.")
-                }
-              }
+  <script>
+    //custom error messages for the weeks left input
+      function showWeeksError(input) {
+        if (input.validity.rangeOverflow) {
+          input.setCustomValidity("You probably don't need to start studying yet")
+        } else if (input.validity.rangeUnderflow){
+          input.setCustomValidity("Even if you have only half a week, enter 1")
+        } else {
+          input.setCustomValidity("")
+        }
+      }
+    
+    //custom error message for the goal input
+      function showGoalError(input) {
+        if (input.validity.rangeUnderflow) {
+          input.setCustomValidity("Good for you. No need to study then.")
+        }
+      }
 
-      //custom error message for an unhealthy amount of study time
-              function checkStudyHours(input) {
-                const warning = document.getElementById("study-hours-warning");
+    //custom alert message for an unhealthy amount of study time
+      function checkStudyHours(input) {
+        const warning = document.getElementById("study-hours-warning");
 
-                //checks if their study hours are sensible
-                if (input.value >= 11 && input.value <=24) {
-                  warning.textContent="That may not be healthy"
-                  warning.style.display = "block";
-                } else {
-                  //if not, the alert won't show
-                  warning.style.display = "none";
-                }
-              }
-    </script>
+        //checks if their study hours are sensible
+        if (input.value >= 11 && input.value <=24) {
+          warning.textContent="That may not be healthy"
+          warning.style.display = "block";
+        } else {
+          //if not, the alert won't show
+          warning.style.display = "none";
+        }
+      }
+  </script>
 
 </body>
 </html>

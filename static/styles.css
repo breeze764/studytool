@@ -123,6 +123,7 @@ input[type=number]:focus {
 
 .row.d-flex.align-items-stretch {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .row.d-flex.align-items-stretch > [class^="col-"] {
@@ -138,7 +139,7 @@ blockquote {
 }
 
 
-. blockquote active {
+.blockquote.active {
   font-family: inherit;
   font-style: none;
   color:#1A1110;
