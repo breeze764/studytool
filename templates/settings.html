@@ -77,14 +77,23 @@
     </div>
 
     <script>
-    //function to save their font choice to use across every page
-    function setFont(font) {
-      document.body.classList.remove('hyper-font','comic-font','normal-font')
-      if (font != 'normal-font') {
-        document.body.classList.add(font)
-      }
-    }
-  </script>
+        //function to save their font choice to use across every page
+        function storeFont(font) {
+            localStorage.removeItem('selectedFont')
+            if (font != 'normal-font') {
+                localStorage.setItem('selectedFont', font)
+            }
+            alert("Preference saved!")
+        }
+
+        //on load, check if they have a font preference saved, and apply it
+        window.onload = function() {
+            const theirFont = localStorage.getItem('selectedFont')
+            if (theirFont) {
+                document.body.classList.add(theirFont);
+            }
+        };
+    </script>
 
 </body>
 </html>

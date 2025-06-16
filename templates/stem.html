@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="static/styles.css">
+    <!-- load CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
+    <!-- load jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
+    <!-- load bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script scr="form.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- load my stylesheet -->
     <link rel="stylesheet" href="static/styles.css">
+
+    <!-- load accessibility fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
     <title>Stem Subjects Search</title>
 </head>
 <body>
@@ -89,6 +97,16 @@
 
       </div>
     </div>
+    
+    <script>
+    //on load, check if they have a font preference saved, and apply it
+    window.onload = function() {
+        const theirFont = localStorage.getItem('selectedFont')
+        if (theirFont) {
+            document.body.classList.add(theirFont);
+        }
+    };
+  </script>
    
 </body>
 </html>

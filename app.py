@@ -246,7 +246,7 @@ def understanding():
 def memorizing():
     return render_template('remembering.html')
 
-"""--------------------------------Extra Stuff-----------------------------------"""
+"""--------------------------------Extra Useful Stuff-----------------------------------"""
 
 @app.route('/settings')
 def settings():
