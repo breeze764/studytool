@@ -1,147 +1,115 @@
+/* --- CSS styles for study tool website ---*/
+
+/* --- define colors as custom variables for easy use --- */
+:root {
+  --light-green: #A8E6A7;
+  --dark-green: #225560;
+  --black: #1A1110;
+  --red: #A6192E;
+  --white: #FFFFFF;
+}
+
+/* --- general styles --- */
 body {
-    background-color: #A8E6A7;
-  }
-  h2 {
-    color: #225560;
-  }
-  h3 {
-    color: #1A1110;
-    text-align: center;
-  }
-  p {
-    color: #1A1110;
-  }
-
-/* Add a black background color to the top navigation */
-.navbar-inverse {
-background-color: #225560;
-border-color: #225560;
-overflow: hidden;
+  background-color: var(--light-green);
+}
+/*use h2 for the invisible filler text in the dark green columns */
+h2 {
+  color: var(--dark-green);
+}
+h3 {
+  color: var(--black);
+  text-align: center;
+}
+p {
+  color: var(--black);
 }
 
-.navbar-fixed-top {
-  border-bottom-width: 0px;
-}
 
-.navbar-inverse .navbar-brand {
-color: #ffffff;
-}
-
-/* Style the links inside the navigation bar */
-.navbar-inverse .navbar-nav>li>a {
-float: left;
-color: #ffffff;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.navbar-inverse a:hover {
-background-color: #ffffff;
-color: #1A1110;
-}
-
-.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
-color: #ffffff;
-background-color: #A8E6A7;
-}
-
-.form-group label {
-  color: #212529;
-  font-weight: 400;
-  line-height: 1.5;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-}
-
-.jumbotron {
-background-color: #ffffff;  
-}
-
+/* --- columns and page layout --- */
 .col-md-3 {
-background-color: #225560;
+  background-color: var(--dark-green);
 }
-
 .col-md-6 {
-background-color: #ffffff;
+  background-color: var(--white);
 }
-
-.btn.btn-success {
-  color:#A8E6A7;
-}
-
-.btn.btn-danger {
-  color: #A6192E;
-}
-
-.btn.btn-block {
-  background-color:#A6192E;
-  border-color:#A6192E;
-}
-
-input[type=text] {
-  width: 100%;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url('searchicon.png');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-  outline: none;
-  border-color:#225560;
-}
-
-input[type=number] {
-  width: 100%;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url('searchicon.png');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-input[type=number]:focus {
-  outline: none;
-  border-color:#225560;
-}
-
 .row.d-flex.align-items-stretch {
   display: flex;
   flex-wrap: wrap;
 }
-
 .row.d-flex.align-items-stretch > [class^="col-"] {
   display: flex;
   flex-direction: column;
 }
 
-blockquote {
-  font-family: inherit;
-  font-style: none;
-  color:#1A1110;
-  font-size: inherit;
+/* --- navbar --- */
+.navbar-inverse {
+background-color: var(--dark-green);
+border-color: var(--dark-green);
+overflow: hidden;
+}
+.navbar-fixed-top {
+  border-bottom-width: 0px;
+}
+.navbar-inverse .navbar-brand {
+color: var(--white);
+}
+.navbar-inverse .navbar-nav>li>a {
+float: left;
+color: var(--white);
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+.navbar-inverse a:hover {
+background-color: var(--white);
+color: var(--black);
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+color: var(--white);
+background-color: var(--light-green);
 }
 
+/* --- forms --- */
+.form-group label {
+  color: var(--black);
+  font-weight: 400;
+  line-height: 1.5;
+}
+input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid var(--dark-green);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--white);
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+input:focus {
+  outline: none;
+  border-color: var(--dark-green);
+}
 
-.blockquote.active {
-  font-family: inherit;
-  font-style: none;
-  color:#1A1110;
-  font-size: 25px;
+/* --- special elements and buttons --- */
+blockquote {
+  font-style: normal;
+  color: var(--black);
+}
+.jumbotron {
+  background-color: var(--white);
+}
+.btn.btn-success {
+  background-color:var(--light-green);
+}
+.btn.btn-danger {
+  background-color: var(--red);
+}
+.btn.btn-block {
+  background-color: var(--red);
+  border-color: var(--red);
 }
