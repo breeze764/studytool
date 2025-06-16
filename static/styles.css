@@ -25,6 +25,14 @@ p {
   color: var(--black);
 }
 
+/* --- accessibility styles --- */
+.hyper-font {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+.comic-font {
+  font-family: 'Comic Neue', sans-serif;
+}
+
 
 /* --- columns and page layout --- */
 .col-md-3 {

@@ -246,7 +246,11 @@ def understanding():
 def memorizing():
     return render_template('remembering.html')
 
-"""-------------------------------------------------------------------------------------"""
+"""--------------------------------Extra Stuff-----------------------------------"""
+
+@app.route('/settings')
+def settings():
+    return render_template('settings.html')
 
 #executes a query to the sqlite database and returns the results
 def query(query,args=()):
@@ -258,14 +262,10 @@ def query(query,args=()):
     return rows
 
 #something I'm only using for testing
-@app.route('/crappy_dumpster', methods=['POST', 'GET'])
+@app.route('/crappy_dumpster')
 def display_random_stuff():
     #re define this each time I want to print something different
-    their_input = request.values.get('their_input')
-    subject_ID = query("SELECT ID FROM Subjects WHERE Name=?",(their_input,))
-    subject_ID = subject_ID[0][0]
-    thing_to_test = query("SELECT Name FROM Standards WHERE Subject_ID=?",(subject_ID,))
-    return render_template("testingstuff.html",thing_to_test=thing_to_test)
+    return render_template("testingstuff.html")
 
 
 if __name__ == '__main__':

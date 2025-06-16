@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="static/styles.css">
-    <!-- Latest compiled and minified CSS -->
+    <!-- load CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
+    <!-- load jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
+    <!-- load bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- load my stylesheet -->
     <link rel="stylesheet" href="static/styles.css">
+
+    <!-- load accessibility fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
     <title>Home Page</title>
 </head>
 <body>
@@ -52,6 +60,13 @@
       </div>
 
       <div class="col-xs-12 col-md-6">
+
+        <!-- button to toggle accessible fonts -->
+        <br><br>
+        <button onclick="setFont('hyper-font')">Hyperlegible Font</button>
+        <button onclick="setFont('comic-font')">Dyslexia Font</button>
+        <button onclick="setFont('normal-font')">Default Font</button>
+
         <h3>So you made it to year 12...</h3>
         <p>You're probably wondering what exams are like.</p>
         <p>And if you need to start studying yet.</p>
@@ -63,10 +78,11 @@
         <p>1. Find out <i>what</i> to study (ie. complex circuits, verb tenses, practice essays)</p>
         <p>2. Decide <i>when</i> (ie. two half-hour sprints after dinner, an hour each morning)</p>
         <p>3. Learn <i>how</i> (i.e. the SQ3R method, retrieval strategies, interleaving practices)</p>
-        <br>
+        <br><br>
         <div class="text-center">
           <a href="/tutorial1" class="btn btn-default" role="button">Go!</a>
         </div>
+        <br><br>
       </div>
 
       <div class="col-xs-12 col-md-3">
@@ -76,6 +92,16 @@
 
     </div>
   </div>
+
+  <script>
+    //function to change the fonts and layout
+    function setFont(font) {
+      document.body.classList.remove('hyper-font','comic-font','normal-font')
+      if (font != 'normal-font') {
+        document.body.classList.add(font)
+      }
+    }
+  </script>
 
 </body>
 </html>
