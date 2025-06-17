@@ -161,8 +161,8 @@ blockquote {
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-/* do a horizontal flip when mouse over it */
-.flip-card:hover .flip-card-inner {
+/* card will appear flipped when the 'flipped' class is added to it */
+.flip-card.flipped .flip-card-inner {
   transform: rotateY(190deg);
 }
 /* position the front and the back */

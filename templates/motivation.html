@@ -271,6 +271,12 @@
                 document.body.classList.add(theirColor);
             }
         };
+        //adds 'flipped' class to cards that have been clicked, so they appear flipped over
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        });
     </script>
 
 </body>
