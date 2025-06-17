@@ -1,6 +1,6 @@
 #the study tool website python backend
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 import sqlite3
 
 DB_PATH="subjects.db"
@@ -108,9 +108,9 @@ def calculate():
         minutes = 15
     elif minutes_raw <=30:
         minutes = 30
-    elif minutes_raw <=45:
+    elif minutes_raw <= 45:
         minutes = 45
-    elif minutes_raw <=60:
+    elif minutes_raw <= 60:
         #we'll round it up to another entire hour
         minutes = 0
         t_session += 1
