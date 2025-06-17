@@ -150,6 +150,7 @@ blockquote {
   height: 200px;
   border: 1px solid var(--white);
   perspective: 1000px;
+  margin: 0 10px;
 }
 /* position the front and the back */
 .flip-card-inner {
