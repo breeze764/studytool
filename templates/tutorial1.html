@@ -75,12 +75,13 @@
             <br>
             <p>Q{{ q.id }}: {{ q.text }}</p>
             <button class="btn btn-default" onclick="checkAnswer(this)" data-question="{{q.id}}" data-correct="{{ (q.correct_answer == 'true') | lower}}">True</button>
+            <br>
             <button class="btn btn-default" onclick="checkAnswer(this)" data-question="{{q.id}}" data-correct="{{ (q.correct_answer == 'false') | lower}}">False</button>
           {% endfor %}
           <br>
           <br>
           <br>
-          <div class="col text-center">
+          <div class="text-center">
           <a href="/answers" class="btn btn-default" role="button">Confused about these answers? Click here</a>
           </div>
           <br>

@@ -7,6 +7,7 @@
   --black: #1A1110;
   --red: #A6192E;
   --white: #FFFFFF;
+  --coral: #F78C6B;
 }
 
 /* --- general styles --- */
@@ -91,7 +92,7 @@ color: var(--black);
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
 color: var(--white);
-background-color: var(--light-green);
+background-color: var(--coral);
 }
 
 /* --- forms --- */
@@ -135,4 +136,8 @@ blockquote {
 .btn.btn-block {
   background-color: var(--red);
   border-color: var(--red);
+}
+.btn.btn-default {
+  background-color: var(--coral);
+  border: none;
 }
