@@ -66,14 +66,31 @@
         </div>
       
         <div class="col-xs-12 col-md-6">
-            <br><br>
-            <h3>This is your settings page</h3>
-            <lorem></lorem>
-            <!-- button to toggle accessible fonts -->
-            <br><br>
-            <button onclick="storeFont('hyper-font')">Hyperlegible Font</button>
-            <button onclick="storeFont('comic-font')">Dyslexia Font</button>
-            <button onclick="storeFont('normal-font')">Default Font</button>
+          <br><br>
+          <h3>Settings</h3>
+          <br>
+          <div class="row d-flex align-items-stretch">
+            <div class="col-xs-12 col-md-6">
+              <p class="text-center">Change font</p>
+              <!-- buttons to toggle accessible fonts -->
+              <button class="btn btn-default" onclick="storeFont('hyper-font')">Hyperlegible Font</button>
+              <br>
+              <button class="btn btn-default" onclick="storeFont('comic-font')">Dyslexia Font</button>
+              <br>
+              <button class="btn btn-default" onclick="storeFont('normal-font')">Default Font</button>
+              <br>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <p class="text-center">Change color scheme</p>
+              <!-- buttons to toggle different color schemes -->
+              <button class="btn btn-default" onclick="storeColor('black-yellow-color')">Black and Yellow</button>
+              <br>
+              <button class="btn btn-default" onclick="storeColor('vibrant-color')">Vibrant</button>
+              <br>
+              <button class="btn btn-default" onclick="storeColor('normal-color')">Default</button>
+              <br>
+            </div>
+          </div>
         </div>
 
         <div class="col-xs-12 col-md-3">
@@ -90,14 +107,27 @@
             if (font != 'normal-font') {
                 localStorage.setItem('selectedFont', font)
             }
-            alert("Preference saved!")
+            window.location.reload();
         }
 
-        //on load, check if they have a font preference saved, and apply it
+        //function to store their color choice
+        function storeColor(color) {
+          localStorage.removeItem('selectedColor')
+          if (color != 'normal-color') {
+            localStorage.setItem('selectedColor',color)
+          }
+          window.location.reload();
+        }
+
+        //on load, check if they have a font or color preference saved, and apply it
         window.onload = function() {
-            const theirFont = localStorage.getItem('selectedFont')
+            const theirFont = localStorage.getItem('selectedFont');
+            const theirColor = localStorage.getItem('selectedColor');
             if (theirFont) {
                 document.body.classList.add(theirFont);
+            }
+            if (theirColor) {
+              document.body.classList.add(theirColor);
             }
         };
     </script>

@@ -128,10 +128,10 @@
           </div>
           <br>
           <!--the next form inputs are formatted in rows and columns so they look nicer, and are sets of checkboxes and buttons-->
-          <div class="row">
+          <div class="row d-flex align-items-stretch">
 
             <!--this column is for the time of day question-->
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-xs-12">
               <div class="form-group" id="time_of_day">
                 <label for="time_of_day" style="margin-left: 20px;">When would you like to study?</label>
                 <div class="form-check" style="margin-left: 40px;">
@@ -154,14 +154,14 @@
             </div>
 
             <!--this column is for the days of the week question-->
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-xs-12">
               <div class="form-group" id="week">
 
                 <!--this row is for grouping the days into two columns for nicer output-->
-                <div class="row">
-                <label for="week" style="margin-right:20px;">Which days of the week would you like to study?</label>  
+                <div class="row d-flex align-items-stretch">
+                <label for="week">Which days of the week would you like to study?</label>  
 
-                  <div class="col col-sm-6"> <!--Monday to Thursday-->
+                  <div class="col col-sm-6 col-xs-12"> <!--Monday to Thursday-->
                     <div class="form-check">
                       <input type="checkbox" class="form-check-input" id="Monday" name="week" value="Monday">
                       <label class="form-check-label" for="Monday">Monday</label>
@@ -179,7 +179,7 @@
                       <label class="form-check-label" for="Thursday">Thursday</label>
                     </div>
                   </div>
-                  <div class="col col-sm-6"> <!--Friday to Sunday-->
+                  <div class="col col-sm-6 col-xs-12"> <!--Friday to Sunday-->
                     <div class="form-check">
                       <input type="checkbox" class="form-check-input" id="Friday" name="week" value="Friday">
                       <label class="form-check-label" for="Friday">Friday</label>
@@ -249,9 +249,13 @@
 
     //on load, check if they have a font preference saved, and apply it
     window.onload = function() {
-        const theirFont = localStorage.getItem('selectedFont')
+        const theirFont = localStorage.getItem('selectedFont');
+        const theirColor = localStorage.getItem('selectedColor');
         if (theirFont) {
             document.body.classList.add(theirFont);
+        }
+        if (theirColor) {
+          document.body.classList.add(theirColor);
         }
     };
   </script>

@@ -32,6 +32,21 @@ p {
 .comic-font {
   font-family: 'Comic Neue', sans-serif;
 }
+/* re-defines the colors used across the entire site */
+.black-yellow-color {
+  --light-green: #FFD600;
+  --dark-green: #000000;
+  --black: #000000;
+  --red: #000000;
+  --white: #FFFFFF;
+}
+.vibrant-color {
+  --light-green: #9d021c;
+  --dark-green: #004DCA;
+  --black: #000000;
+  --red: #042E9E;
+  --white: #FFFFFF;
+}
 
 
 /* --- columns and page layout --- */

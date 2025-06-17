@@ -267,6 +267,5 @@ def display_random_stuff():
     #re define this each time I want to print something different
     return render_template("testingstuff.html")
 
-
 if __name__ == '__main__':
     app.run(debug=True)

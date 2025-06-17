@@ -114,9 +114,13 @@
   <script>
     //on load, check if they have a font preference saved, and apply it
     window.onload = function() {
-        const theirFont = localStorage.getItem('selectedFont')
+        const theirFont = localStorage.getItem('selectedFont');
+        const theirColor = localStorage.getItem('selectedColor');
         if (theirFont) {
             document.body.classList.add(theirFont);
+        }
+        if (theirColor) {
+          document.body.classList.add(theirColor);
         }
     };
   </script>
