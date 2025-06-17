@@ -271,7 +271,7 @@
                 document.body.classList.add(theirColor);
             }
         };
-        //adds 'flipped' class to cards that have been clicked, so they appear flipped over
+        //toggles the 'flipped' class on and off when clicked, so they appear flipped over/back
         document.querySelectorAll('.flip-card').forEach(card => {
             card.addEventListener('click', () => {
                 card.classList.toggle('flipped');
