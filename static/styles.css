@@ -190,3 +190,9 @@ blockquote {
   color: var(--white);
   transform: rotateY(180deg);
 }
+.flip-card.extra-long {
+  height: 400px;
+}
+.flip-card.flip-card.extra-long .flip-card-back {
+  flex-direction: column;
+}
