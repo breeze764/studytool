@@ -145,8 +145,15 @@ blockquote {
 .btn.btn-default {
   background-color: var(--coral);
   border: none;
+  margin: 1rem 4rem;
 }
-
+.generator-background {
+  background-color: var(--dark-green);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 2rem 4rem;
+}
 
 /* --- study technique flip cards */
 /* flip card container */

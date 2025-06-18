@@ -71,15 +71,10 @@
           <h3>So you think you know about studying</h3>
           <p>There may be some misconceptions you hold, which we need to tackle before we get started. Clearing up these will make it much easier to come up with a clear and cohesive study plan and understand why it works. Take this five question quiz to test you knowledge.</p>
           {% for q in questions %}
-            <br>
-            <br>
             <p>Q{{ q.id }}: {{ q.text }}</p>
             <button class="btn btn-default" onclick="checkAnswer(this)" data-question="{{q.id}}" data-correct="{{ (q.correct_answer == 'true') | lower}}">True</button>
-            <br>
             <button class="btn btn-default" onclick="checkAnswer(this)" data-question="{{q.id}}" data-correct="{{ (q.correct_answer == 'false') | lower}}">False</button>
           {% endfor %}
-          <br>
-          <br>
           <br>
           <div class="text-center">
           <a href="/answers" class="btn btn-default" role="button">Confused about these answers? Click here</a>
