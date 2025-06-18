@@ -60,10 +60,15 @@ p {
 .row.d-flex.align-items-stretch {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .row.d-flex.align-items-stretch > [class^="col-"] {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+.row {
+  justify-content: center;
 }
 
 /* --- navbar --- */
@@ -193,6 +198,7 @@ blockquote {
 .flip-card.extra-long {
   height: 400px;
 }
+/*p elements appear stacked, not side by side, for extra long cards */
 .flip-card.flip-card.extra-long .flip-card-back {
   flex-direction: column;
 }
