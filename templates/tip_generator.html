@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/styles.css">
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- load jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- load bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- load my stylesheet -->
+    <link rel="stylesheet" href="static/styles.css">
+
+    <!-- load accessibility fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+    <title>Generates a random study tip</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Studying LHS</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/tutorial1">Start Here</a></li>
+            <li><a href="/tutorial2">Make a Plan</a></li>
+            <li><a href="/pre-calculator">Calculate Study Time</a></li>
+            <li class="active"><a href="/tutorial3">Study Techniques</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/settings" >
+              Settings  <img src="/static/settings.png" alt="settings" height="25px" width="auto" style="padding: 2px;">
+            </a>
+          </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+      <h1>Random Tip Generator</h1>
+      <p>For speed studying<p>
+    </div>
+    
+    <div class="container-fluid">
+      <div class="row d-flex align-items-stretch">
+
+        <div class="col-xs-12 col-md-3">
+          <h2>Text</h2>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <br><br>
+            <h3>{{ tip_name }}</h3>
+            <br><br>
+            <p class="text-center">{{ tip_explanation }}</p>
+
+            <br><br><br><br>
+            <div class="text-center">
+                <button class="btn btn-default" onclick="window.location.reload()">Generate!</button>
+            </div>         
+            <br><br><br><br>
+            <div class="text-center">
+                <a href="/tutorial3" class="btn btn-default" role="button">Back to Techniques</a>
+            </div>
+            <br><br><br><br>
+
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <h2>Text</h2>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      //on load, check if they have a font preference saved, and apply it
+      window.onload = function() {
+          const theirFont = localStorage.getItem('selectedFont');
+          const theirColor = localStorage.getItem('selectedColor');
+          if (theirFont) {
+              document.body.classList.add(theirFont);
+          }
+          if (theirColor) {
+            document.body.classList.add(theirColor);
+          }
+      };
+    </script>
+
+</body>
+</html>

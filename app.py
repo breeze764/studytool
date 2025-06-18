@@ -2,6 +2,8 @@
 
 from flask import Flask, render_template, request
 import sqlite3
+import csv
+import random
 
 DB_PATH="subjects.db"
 
@@ -33,6 +35,15 @@ questions = [
     " but not <a href='https://www.psychologytoday.com/nz/blog/the-athletes-way/202105/is-diligence-more-important-students-intelligence' target='_blank' rel='noopener noreferrer'>engaged.</a>"),
     Question(5,"You can improve your results by learning studying techniques","true","This is true! That's what this website is all about. Now are you ready to plan your study?"),
 ]
+
+study_tips = {}
+
+#builds a dictionary out of the study tips in the csv file
+with open("study_tips.csv", newline="", encoding="utf8") as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        #makes the name a key and links it to the explanation of the study tip
+        study_tips[row["name"]] = row["explanation"]
 
 @app.route('/')
 def index():
@@ -252,6 +263,18 @@ def memorizing():
 def settings():
     return render_template('settings.html')
 
+@app.route('/generator')
+def generator():
+    #gets random number within index of study_tips dict, to select a random tip
+    random_number = random.randint(0,(len(study_tips)-1))
+    #makes a list of the dictionary so we can select name and explanation at once
+    study_tips_list = list(study_tips.items())
+    tip_name, tip_explanation = study_tips_list[random_number]
+    #removing the first and last characters, because these are annoying "" quotations
+    n = len(tip_explanation)
+    tip_explanation = tip_explanation[2:(n-1)]
+    return render_template('tip_generator.html',tip_name=tip_name,tip_explanation=tip_explanation)
+
 #executes a query to the sqlite database and returns the results
 def query(query,args=()):
     conn = sqlite3.connect(DB_PATH)
@@ -265,7 +288,7 @@ def query(query,args=()):
 @app.route('/crappy_dumpster')
 def display_random_stuff():
     #re define this each time I want to print something different
-    return render_template("testingstuff.html")
+    return render_template("testingstuff.html",study_tips=study_tips)
 
 if __name__ == '__main__':
     app.run(debug=True)
