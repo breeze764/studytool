@@ -1,5 +1,5 @@
 #the study tool website python backend
-#by Brianna
+#by Bri
 #first draft finished 19/05/2025
 
 from flask import Flask, render_template, request
