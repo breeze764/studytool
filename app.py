@@ -1,4 +1,6 @@
 #the study tool website python backend
+#by Brianna
+#first draft finished 19/05/2025
 
 from flask import Flask, render_template, request
 import sqlite3
@@ -9,6 +11,7 @@ DB_PATH="subjects.db"
 
 app = Flask(__name__)
 
+#defines a Question object
 class Question:
     def __init__(self,id,text,correct_answer,explanation):
         self.id = id
@@ -71,7 +74,7 @@ def get_hours():
 
 @app.route('/calculate', methods=['POST', 'GET'])
 def calculate():
-    #gets the info from our form about how long they want to study
+    #gets the info from form about how long they want to study
     n_weeks = int(request.form.get('n_weeks'))
     n_hours_per_day = int(request.form.get('hours'))
     goal = int(request.form.get('goal'))
@@ -83,7 +86,7 @@ def calculate():
     #if they didn't check any "time of day" checkboxes, render the error page
     if time_of_day == []:
         their_error="You need to select at least one time to study."
-        #these two are so the user can get back to the form from the error page, to retry it
+        #so the user can get back to the form from the error page, to retry it
         back_button="Back to Calculator"
         back_href="calculator"
         return render_template("error_page.html",their_error=their_error,back_button=back_button,back_href=back_href)
@@ -283,12 +286,6 @@ def query(query,args=()):
     rows = cur.fetchall()
     conn.close()
     return rows
-
-#something I'm only using for testing
-@app.route('/crappy_dumpster')
-def display_random_stuff():
-    #re define this each time I want to print something different
-    return render_template("testingstuff.html",study_tips=study_tips)
 
 if __name__ == '__main__':
     app.run(debug=True)

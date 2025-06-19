@@ -106,6 +106,7 @@ background-color: var(--coral);
   font-weight: 400;
   line-height: 1.5;
 }
+/* makes the text input boxes look nice when you click on them */
 input {
   width: 100%;
   box-sizing: border-box;
@@ -159,11 +160,11 @@ blockquote {
 /* flip card container */
 .flip-card {
   background-color: transparent;
-  width: 300px;
+  width: 290px;
   height: 200px;
   border: 1px solid var(--white);
   perspective: 1000px;
-  margin: 0 10px;
+  margin: 10px 0;
 }
 /* position the front and the back */
 .flip-card-inner {
